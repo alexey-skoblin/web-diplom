@@ -1,0 +1,23 @@
+@import "globals";
+
+:root {
+  body {
+    background: $background-color;
+    font-family: $font-family;
+    padding: 0;
+    margin: 0;
+  }
+
+  header {
+    @include container(0);
+    @extend .fixed;
+    align-items: center; /* Выравниваем элементы по центру по вертикали */
+    display: flex; /* Располагаем элементы в строку */
+    justify-content: space-between; /* Равномерно распределяем пространство между элементами */
+    top: $header-top;
+    left: 15px;
+    right: 15px;
+    height: $header-height;
+    z-index: 3;
+  }
+}

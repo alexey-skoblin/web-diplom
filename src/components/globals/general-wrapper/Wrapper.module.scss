@@ -1,0 +1,15 @@
+@import "../../../app/globals";
+
+.main {
+  @include container(10px);
+  margin-left: 15px; /* Отступ слева, чтобы учесть ширину боковой панели */
+  margin-right: 15px;
+  padding-top: 0;
+  top: calc($header-height); /* Отступ сверху, чтобы учесть высоту верхней панели */
+  position: relative; /* Позиция */
+  z-index: 1; /* Порядок слоя (ниже, чем у верхней панели) */
+}
+
+.withDisplayedSidebar {
+  margin-left: calc($sidebar-width + $sidebar-left + $distance-between-elements); /* Отступ слева */
+}

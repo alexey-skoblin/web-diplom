@@ -1,0 +1,29 @@
+$container-font-color: #333;
+$container-active-color: #406ff3;
+$container-background-color: #fff;
+$container-border-radius: 10px;
+$container-icon-size: 24px;
+$background-color: #eaeef6;
+$box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;;
+$font-family: "Open Sans", sans-serif;
+$transition: 0.5s;
+
+$distance-between-elements: 5px;
+$header-top: 15px;
+$header-height: 50px;
+
+$sidebar-width: 150px;
+$sidebar-left: 15px;
+
+@mixin container($padding) {
+  color: $container-font-color;
+  background: $container-background-color;
+  border-radius: $container-border-radius;
+  box-shadow: $box-shadow;
+  font-family: $font-family;
+  padding: $padding;
+}
+
+.fixed {
+  position: fixed;
+}

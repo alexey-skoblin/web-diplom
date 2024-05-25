@@ -1,0 +1,49 @@
+@import "../../../app/globals";
+
+.sidebar {
+  @include container(0);
+  @extend .fixed;
+  padding-top: $header-height;
+  top: calc($header-top + $distance-between-elements); /* Положение сверху */
+  left: -250px; /* Сдвигаем боковую панель за пределы экрана */
+  width: $sidebar-width; /* Ширина автоматическая */
+  z-index: 2; /* Порядок слоя */
+
+  ul {
+    list-style: none; /* Убираем маркеры списка */
+    margin: 0; /* Убираем внешние отступы */
+    padding: 0; /* Убираем внутренние отступы */
+
+    li {
+      margin: 0; /* Убираем внешние отступы */
+
+      a {
+        align-items: center; /* Выравниваем элементы по центру по вертикали */
+        border-radius: $container-border-radius;
+        color: $container-font-color; /* Цвет текста */
+        display: flex;
+        padding: 15px;
+        text-decoration: none;
+
+        &:hover, &:focus, &:active {
+          background: $container-active-color; /* Цвет фона при наведении */
+          color: $container-background-color;
+          transition: background-color $transition, color $transition;
+        }
+
+        i {
+          font-size: 24px; /* Размер шрифта */
+          margin-right: 10px; /* Отступ справа */
+        }
+
+        span {
+          font-size: 16px; /* Размер шрифта */
+        }
+      }
+    }
+  }
+}
+
+.displayedSidebar {
+  left: $sidebar-left; /* Перемещаем боковую панель влево */
+}
