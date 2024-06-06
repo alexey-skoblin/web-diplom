@@ -1,13 +1,11 @@
 "use client";
-import Link from "next/link";
-import Sidebar from "@/components/globals/sidebar/Sidebar";
+import {useDispatch} from "react-redux";
 
 export default function Home() {
+    const dispatch = useDispatch();
 
     return (
-        <main >
-            {/*<SimCard></SimCard>*/}
-            {/*<Link href={"/task"}>Task</Link>*/}
+        <main>
         </main>
     )
 }

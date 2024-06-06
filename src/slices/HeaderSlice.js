@@ -1,11 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 
 export const headerSlice = createSlice({
     name: 'header',
     initialState: {
-        isOpenSidebar: false,
+        pageTitle: ``,
+        isOpenSidebar: false
     },
     reducers: {
+        setPageTitle: (state, action) => {
+            state.pageTitle = action.payload;
+        },
         setIsOpenSidebar: (state, action) => {
             state.isOpenSidebar = action.payload
         }
@@ -13,6 +17,6 @@ export const headerSlice = createSlice({
 })
 
 export const selectIsOpenSidebar = (state) => state.header.isOpenSidebar
-
-export const { setIsOpenSidebar} = headerSlice.actions
+export const selectPageTitle = (state) => state.header.pageTitle
+export const {setIsOpenSidebar, setPageTitle} = headerSlice.actions
 export default headerSlice.reducer

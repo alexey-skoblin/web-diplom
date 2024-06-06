@@ -1,13 +1,17 @@
 "use client";
-import styles from './Wrapper.module.scss';
-import {selectIsOpenSidebar} from "@/slices/HeaderSlice";
 import {useSelector} from "react-redux";
+import {selectIsDisplayed} from "@/slices/SidebarSlice";
+import {selectData} from "@/slices/simCard/SimCardBarSlice";
 
 export default function Wrapper({children}) {
-    const isOpenSidebar = useSelector(selectIsOpenSidebar);
+    const sidebarIsDisplayed = useSelector(selectIsDisplayed);
+    const simCardBarIsDisplayed = useSelector(selectData) != null;
 
     return (
-        <div id={styles.main} className={`${styles.main} ${isOpenSidebar ? styles.withDisplayedSidebar : ''}`}>
+        <div
+            // id={styles.main}
+            // className={`${styles.main} ${sidebarIsDisplayed ? styles.withDisplayedSidebar : ''} ${infoBarIsDisplayed ? styles.withDisplayedInfoBar : ''}`}
+        >
             {children}
         </div>
     )

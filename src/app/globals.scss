@@ -1,19 +1,59 @@
+// Цветовые переменные
+$main-color: #eaeef6;
+$secondary-color: #406ff3;
+
+/* Базовая единица размера */
+$base-size: 14px;
+
 $container-font-color: #333;
-$container-active-color: #406ff3;
+$container-active-color: $secondary-color;
 $container-background-color: #fff;
 $container-border-radius: 10px;
-$container-icon-size: 24px;
-$background-color: #eaeef6;
-$box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;;
+$container-icon-size: 12/7 * $base-size;
+$background-color: $main-color;
+$box-shadow: rgba(149, 157, 165, 0.2) 0px 4/7*$base-size 12/7*$base-size;
+
 $font-family: "Open Sans", sans-serif;
-$transition: 0.5s;
 
-$distance-between-elements: 5px;
-$header-top: 15px;
-$header-height: 50px;
+$distance-between-elements: 5px/14px * $base-size;
+$header-top: $base-size;
+$header-height: 50px/14px * $base-size;
 
-$sidebar-width: 150px;
-$sidebar-left: 15px;
+$sidebar-width: 150px/14px * $base-size;
+$sidebar-left: $base-size;
+
+$infoBar-width: 550px/14px * $base-size;
+$infoBar-right: $base-size;
+
+/* Размеры, основанные на базовой единице */
+$padding-container: $base-size;
+$margin-container: $base-size;
+$border: $base-size / 10;
+$border-radius: 0.4rem;
+$font-size-element: $base-size;
+$padding-element: 0.5 * $base-size 0.9 * $base-size;
+$width-container: 5 * $font-size-element + 8 * $base-size;
+$width-active: 2 * $base-size;
+$border-width-active: $base-size / 2;
+
+
+/* Скругление верхних углов заголовка таблицы */
+.table thead th:first-child {
+  border-top-left-radius: $container-border-radius;
+}
+
+.table thead th:last-child {
+  border-top-right-radius: $container-border-radius;
+}
+
+/* Скругление нижних углов последней строки тела таблицы */
+.table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: $container-border-radius;
+}
+
+.table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: $container-border-radius;
+}
 
 @mixin container($padding) {
   color: $container-font-color;
@@ -22,6 +62,7 @@ $sidebar-left: 15px;
   box-shadow: $box-shadow;
   font-family: $font-family;
   padding: $padding;
+  transition: all 1s ease 0s; /* only transition top property */
 }
 
 .fixed {

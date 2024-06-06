@@ -15,8 +15,8 @@
     display: flex; /* Располагаем элементы в строку */
     justify-content: space-between; /* Равномерно распределяем пространство между элементами */
     top: $header-top;
-    left: 15px;
-    right: 15px;
+    left: $base-size;
+    right: $base-size;
     height: $header-height;
     z-index: 3;
   }

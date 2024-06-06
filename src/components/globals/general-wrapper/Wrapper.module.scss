@@ -2,14 +2,18 @@
 
 .main {
   @include container(10px);
-  margin-left: 15px; /* Отступ слева, чтобы учесть ширину боковой панели */
-  margin-right: 15px;
+  margin-left: $sidebar-left; /* Отступ слева, чтобы учесть ширину боковой панели */
+  margin-right: $infoBar-right; /* Отступ справа, чтобы учесть ширину боковой панели */
   padding-top: 0;
-  top: calc($header-height); /* Отступ сверху, чтобы учесть высоту верхней панели */
+  top: calc($header-height + $header-top + $distance-between-elements); /* Отступ сверху, чтобы учесть высоту верхней панели */
   position: relative; /* Позиция */
   z-index: 1; /* Порядок слоя (ниже, чем у верхней панели) */
 }
 
 .withDisplayedSidebar {
   margin-left: calc($sidebar-width + $sidebar-left + $distance-between-elements); /* Отступ слева */
+}
+
+.withDisplayedInfoBar {
+  margin-right: calc($infoBar-width + $infoBar-right + $distance-between-elements); /* Отступ слева */
 }

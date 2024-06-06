@@ -1,0 +1,83 @@
+@import "../../../app/globals";
+
+.table {
+  table-layout: fixed;
+  padding-top: 1.5 * $padding-container;
+  padding-left: $padding-container;
+  padding-right: $padding-container;
+  width: 100%;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.table thead {
+  background-color: lighten($secondary-color, 5%);
+  color: lighten($main-color, 5%);
+}
+
+.table th,
+.table td {
+  padding: $padding-element;
+  border: solid $border darken($main-color, 10%);
+  font-size: bold $font-size-element;
+  text-align: center; /* Горизонтальное выравнивание */
+  vertical-align: middle; /* Вертикальное выравнивание */
+}
+
+.table tbody tr {
+  &:nth-child(even) {
+    background-color: lighten($secondary-color, 35%);
+  }
+
+  /*  &:hover {
+      font-weight: bold;
+    }*/
+}
+
+.activating {
+  width: 2.5 * $width-active;
+}
+
+.inputting {
+  width: 1.5 * $base-size;
+}
+
+.table input {
+  width: 1.5 * $base-size;
+  height: 1.5 * $base-size;
+}
+
+.table button {
+  font-weight: bold;
+  background-color: lighten($secondary-color, 5%);
+  border: solid $border $secondary-color;
+  color: lighten($main-color, 5%);
+  padding: $padding-element;
+  border-radius: $border-radius;
+  cursor: pointer;
+  height: 2 * $base-size;
+  display: flex;
+  align-items: center;
+
+  &:hover, &:active, &:focus {
+    list-style: none;
+    border: solid $border darken($main-color, 10%);
+    color: darken($main-color, 45%);
+    background-color: $main-color;
+    text-decoration: none;
+    font-weight: bold;
+    align-items: center; /* Вертикальное выравнивание по центру */
+    justify-content: center; /* Горизонтальное выравнивание по центру */
+  }
+}
+
+// Стили для статусов
+.statusActive {
+  font-weight: bold;
+  color: green;
+}
+
+.statusInactive {
+  font-weight: bold;
+  color: red;
+}

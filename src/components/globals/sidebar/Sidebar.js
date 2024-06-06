@@ -1,63 +1,46 @@
 "use client";
-import styles from './Sidebar.module.scss';
-import {selectIsOpenSidebar} from "@/slices/HeaderSlice";
-import {useSelector} from "react-redux";
+// import styles from './Sidebar.module.scss';
+import Link from 'next/link';
+import {setIsOpenSidebar} from "@/slices/HeaderSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigation} from "@/components/globals/Sites";
+import {useEffect, useRef} from "react";
+import {selectIsDisplayed} from "@/slices/SidebarSlice";
 
 export default function Sidebar() {
-    const isOpenSidebar = useSelector(selectIsOpenSidebar);
+    const dispatch = useDispatch();
+    const isDisplayed = useSelector(selectIsDisplayed);
+    const {sites, isActivePath} = useNavigation();
+    const sidebarRef = useRef(null);
+    useEffect(() => {
+        const handleClickOutsideSidebar = (e) => {
+            if (isDisplayed
+                && sidebarRef.current
+                && !sidebarRef.current.contains(e.target)) {
+                dispatch(setIsOpenSidebar(!isDisplayed))
+            }
+        };
+        document.addEventListener('click', handleClickOutsideSidebar);
+        return () => {
+            document.removeEventListener('click', handleClickOutsideSidebar);
+        };
+    }, [sidebarRef, isDisplayed]);
 
     return (
-        <nav id={styles.sidebar} className={`${styles.sidebar} ${isOpenSidebar ? styles.displayedSidebar : ''}`}>
+        <nav ref={sidebarRef}
+            // id={styles.sidebar}
+            // className={`${styles.sidebar} ${isDisplayed ? styles.displayed : ''}`}
+        >
             <ul>
-                <li>
-                    <a href="#">
-                        <i className="las la-home"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className="las la-image"></i>
-                        <span>Images</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className="las la-file"></i>
-                        <span>Files</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className="las la-gamepad"></i>
-                        <span>Games</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className="las la-book"></i>
-                        <span>Books</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className="las la-bell"></i>
-                        <span>Notifications</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className="las la-cog"></i>
-                        <span>Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i className="las la-user"></i>
-                        <span>Profile</span>
-                    </a>
-                </li>
+                {Object.entries(sites).map(([key, value]) => (
+                    <li key={key}>
+                        <Link href={`/${value}`}
+                            // className={isActivePath(`/${value}`) ? styles.active : ''}
+                        >{key}</Link>
+                    </li>
+                ))}
             </ul>
         </nav>
+
     );
 };
