@@ -42,7 +42,7 @@ export default function SimCard() {
     };
 
     function update(simCardStatus) {
-        fetch(`http://localhost:8000/sim-cards/update-status?status=${simCardStatus}`, {
+        fetch(`http://localhost:8000/sim-cards/update-status?simCardStatus=${simCardStatus}`, {
             method: 'POST',
             body: JSON.stringify(selectedItemsArray),
             headers: {'Content-Type': 'application/json'},

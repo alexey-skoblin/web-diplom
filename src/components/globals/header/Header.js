@@ -24,7 +24,7 @@ export default function Header() {
                     // className={styles.menuButton}
                     onClick={() => dispatch(setIsDisplayed(!sidebarIsDisplayed))}
                 >☰ {pageTitle}</button>
-                <h1>{sidebarIsDisplayed ? 'Open Sidebar' : 'Close Sidebar'}</h1>
+                {/*<h1>{sidebarIsDisplayed ? 'Open Sidebar' : 'Close Sidebar'}</h1>*/}
             </header>
             <div
                 // className={styles.separator}

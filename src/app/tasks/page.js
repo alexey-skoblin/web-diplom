@@ -1,13 +1,12 @@
 "use client";
-import Link from "next/link";
 import PageNumber from "@/components/pages/pageNumber/PageNumber";
+import Task from "@/components/pages/task/Task";
 
 export default function Home() {
 
     return (
         <main>
-            test
-            <Link href={"/"}>Link</Link>
+            <Task></Task>
             <PageNumber/>
         </main>
     );

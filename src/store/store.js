@@ -6,6 +6,8 @@ import infoBarReducer from "@/slices/simCard/SimCardBarSlice";
 import pageNumberReducer from "@/slices/PageNumberSlice";
 import simCardPageSlice from "@/slices/simCard/SimCardPageSlice";
 import clientPageSlice from "@/slices/client/ClientPageSlice";
+import taskSlice from "@/slices/task/TaskSlice";
+import taskPageSlice from "@/slices/task/TaskPageSlice";
 
 export const store = configureStore({
     reducer: {
@@ -15,6 +17,8 @@ export const store = configureStore({
         simCardBar: infoBarReducer,
         pageNumber: pageNumberReducer,
         simCardPage: simCardPageSlice,
-        clientPage: clientPageSlice
+        clientPage: clientPageSlice,
+        task: taskSlice,
+        taskPage: taskPageSlice
     }
 })
