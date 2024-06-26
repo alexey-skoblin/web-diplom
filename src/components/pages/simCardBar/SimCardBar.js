@@ -2,7 +2,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {selectData, setData} from "@/slices/simCard/SimCardBarSlice";
 import {useEffect, useRef} from "react";
-// import styles from './SimCardBar.module.scss';
+import styles from './SimCardBar.module.scss';
 
 export default function SimCardBar() {
     const dispatch = useDispatch();
@@ -25,12 +25,10 @@ export default function SimCardBar() {
 
     return (
         <div ref={infoBarRef}
-            // className={`${styles.infoBar} ${infoBarData != null ? styles.displayed : ''}`}
+             className={`${styles.infoBar} ${infoBarData != null ? styles.displayed : ''}`}
         >
             {infoBarData && (
-                <table
-                    // className={styles.table}
-                >
+                <table className={styles.table}>
                     <tbody>
                     <tr>
                         <td>iccid</td>

@@ -45,6 +45,9 @@ export const selectTaskRequest = (state) => {
         + "&searchTaskStatus=" + state.taskPage.searchTaskStatus;
 }
 
+export const selectSearchTaskStatus = (state) => state.taskPage.searchTaskStatus
+export const selectSortingField = (state) => state.taskPage.sortingField
+export const selectSortingOrder = (state) => state.taskPage.sortingOrder
 
 export const {setSort, setSearchTaskStatus} = taskPage.actions
 export default taskPage.reducer

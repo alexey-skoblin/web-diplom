@@ -62,7 +62,7 @@ export const clientPage = createSlice({
         },
         setSearchRole: (state, action) => {
             state.searchRole = action.payload
-        },
+        }
     }
 });
 

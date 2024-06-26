@@ -2,8 +2,7 @@
 
 .separator {
   @extend .fixed;
-  background: $background-color;
-  font-family: $font-family;
+  background: $base-color-background;
   top: 0;
   padding: 0;
   margin: 0;
@@ -17,8 +16,8 @@
   border: none;
   cursor: pointer;
   font-weight: bolder;
-  color: $container-active-color;
-  font-size: $container-icon-size;
+  color: $container-color-active;
+  font-size: $header-font-size;
 
   &:focus {
     outline: none;

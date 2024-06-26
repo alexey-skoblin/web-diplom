@@ -5,7 +5,7 @@
   @include container(0);
   @extend .fixed;
   border-radius: $border-radius;
-  padding: $padding-container * 1.4;
+  padding: $container-padding * 1.4;
   width: $infoBar-width;
   height: auto;
   box-sizing: border-box;
@@ -16,59 +16,4 @@
 
 .displayed {
   right: $infoBar-right;
-}
-
-/* Таблица */
-.table {
-  width: 100%;
-  table-layout: fixed;
-  //width: $infoBar-width;
-  border-collapse: collapse; /* Объединение границ */
-}
-
-.table th,
-.table td {
-  padding: $padding-element;
-  border: 1px solid darken($main-color, 10%); /* Цвет рамки */
-  font-weight: bold;
-  font-size: $font-size-element;
-  //text-align: center; /* Горизонтальное выравнивание */
-  vertical-align: middle; /* Вертикальное выравнивание */
-}
-
-.table th {
-  background-color: lighten($secondary-color, 5%); /* Цвет фона заголовков */
-  color: lighten($main-color, 5%);
-}
-
-.table tbody tr:nth-child(even) {
-  background-color: lighten($secondary-color, 35%); /* Цвет фона четных строк */
-}
-
-/* Кнопка */
-.table button {
-  font-weight: bold;
-  background-color: lighten($secondary-color, 5%); /* Цвет фона кнопки */
-  color: lighten($main-color, 5%); /* Цвет текста кнопки */
-  border: none;
-  padding: $padding-element;
-  border-radius: $border-radius;
-  cursor: pointer;
-
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: lighten($secondary-color, 15%); /* Изменение цвета при наведении, активации или фокусе */
-  }
-}
-
-/* Статусы */
-.statusActive {
-  font-weight: bold;
-  color: green;
-}
-
-.statusInactive {
-  font-weight: bold;
-  color: red;
 }

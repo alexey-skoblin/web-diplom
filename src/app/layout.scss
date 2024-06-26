@@ -1,14 +1,17 @@
 @import "globals";
 
 :root {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+
   body {
-    background: $background-color;
-    font-family: $font-family;
+    background: $base-color-background;
     padding: 0;
     margin: 0;
   }
 
   header {
+    font-size: $header-font-size;
     @include container(0);
     @extend .fixed;
     align-items: center; /* Выравниваем элементы по центру по вертикали */

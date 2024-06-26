@@ -2,8 +2,19 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useFetch} from "@custom-react-hooks/all";
-import {selectTaskRequest, setSearchTaskStatus, setSort} from "@/slices/task/TaskPageSlice";
+import {
+    selectSearchTaskStatus,
+    selectSortingField,
+    selectSortingOrder,
+    selectTaskRequest,
+    setSearchTaskStatus,
+    setSort,
+    sortingOrders
+} from "@/slices/task/TaskPageSlice";
 import {setNumber} from "@/slices/PageNumberSlice";
+import styles from "./Task.module.scss";
+import searchStyles from "../Search.module.scss";
+import {viewSorting} from "@/components/pages/Pages";
 
 export default function Task() {
     const dispatch = useDispatch();
@@ -27,28 +38,34 @@ export default function Task() {
         }, 100);
     }
 
+    function getViewSortingFiled(sortingField) {
+        return <>{viewSorting(sortingField, useSelector(selectSortingField), useSelector(selectSortingOrder), sortingOrders.asc)}</>;
+    }
+
     return (
         <div>
-            <div>
+            <div className={searchStyles.container}>
                 <input
                     type="text"
+                    value={useSelector(selectSearchTaskStatus)}
                     placeholder="Search by status"
                     onChange={e => {
                         dispatch(setSearchTaskStatus(e.target.value));
                         dispatch(setNumber(0))
-                    }} //simCardData.searchIccid = e.target.value}
+                    }}
                 />
             </div>
             <div>
-                <table>
+                <table className={styles.table}>
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th onClick={() => dispatch(setSort())}>taskStatus</th>
+                        <th onClick={() => dispatch(setSort())}>status{getViewSortingFiled('status')}</th>
                         <th>taskDate</th>
                         <th>simCardIccid</th>
                         <th>simCardStatus</th>
                         <th>simCardDefNumber</th>
+                        <th>simCardMobileOperator</th>
                         <th>clientName</th>
                         <th>clientLastName</th>
                         <th>clientEmail</th>

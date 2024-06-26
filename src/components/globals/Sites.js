@@ -4,9 +4,9 @@ export const sites = {
     Workspace: "",
     tasks: "tasks",
     "Сим-карты": "sim-cards",
-    users: "users",
-    requests: "requests",
-    analytics: "analytics"
+    clients: "clients",
+    // requests: "requests",
+    // analytics: "analytics"
 };
 
 export const useNavigation = () => {

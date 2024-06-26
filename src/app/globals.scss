@@ -1,19 +1,35 @@
-// Цветовые переменные
-$main-color: #eaeef6;
-$secondary-color: #406ff3;
+$base-color-active: #406ff3;
+$base-color-background: #eaeef6;
+$base-color-white: #fff;
 
-/* Базовая единица размера */
-$base-size: 14px;
+$base-size: 1.5vmin;
+$base-font-size: $base-size;
+$base-font-family: "Open Sans", sans-serif;
+$base-padding: 0.5 * $base-size 0.9 * $base-size;
 
-$container-font-color: #333;
-$container-active-color: $secondary-color;
-$container-background-color: #fff;
+$header-font-size: 1.5 * $base-font-size;
+
+$border: $base-size / 10;
+$border-radius: 0.4rem;
+
+$container-color-font: #333;
+$container-color-active: $base-color-active;
+$container-color-background: #fff;
 $container-border-radius: 10px;
-$container-icon-size: 12/7 * $base-size;
-$background-color: $main-color;
-$box-shadow: rgba(149, 157, 165, 0.2) 0px 4/7*$base-size 12/7*$base-size;
+$container-box-shadow: rgba(149, 157, 165, 0.2) 0px 4/7*$base-size 12/7*$base-size;
+$container-padding: $base-size;
+$container-margin: $base-size;
 
-$font-family: "Open Sans", sans-serif;
+@mixin container($padding) {
+  color: $container-color-font;
+  background: $container-color-background;
+  border-radius: $container-border-radius;
+  box-shadow: $container-box-shadow;
+  font-family: $base-font-family;
+
+  padding: $padding;
+  transition: all 1s ease 0s; /* only transition top property */
+}
 
 $distance-between-elements: 5px/14px * $base-size;
 $header-top: $base-size;
@@ -25,46 +41,108 @@ $sidebar-left: $base-size;
 $infoBar-width: 550px/14px * $base-size;
 $infoBar-right: $base-size;
 
-/* Размеры, основанные на базовой единице */
-$padding-container: $base-size;
-$margin-container: $base-size;
-$border: $base-size / 10;
-$border-radius: 0.4rem;
-$font-size-element: $base-size;
-$padding-element: 0.5 * $base-size 0.9 * $base-size;
-$width-container: 5 * $font-size-element + 8 * $base-size;
-$width-active: 2 * $base-size;
-$border-width-active: $base-size / 2;
-
-
-/* Скругление верхних углов заголовка таблицы */
-.table thead th:first-child {
-  border-top-left-radius: $container-border-radius;
-}
-
-.table thead th:last-child {
-  border-top-right-radius: $container-border-radius;
-}
-
-/* Скругление нижних углов последней строки тела таблицы */
-.table tbody tr:last-child td:first-child {
-  border-bottom-left-radius: $container-border-radius;
-}
-
-.table tbody tr:last-child td:last-child {
-  border-bottom-right-radius: $container-border-radius;
-}
-
-@mixin container($padding) {
-  color: $container-font-color;
-  background: $container-background-color;
-  border-radius: $container-border-radius;
-  box-shadow: $box-shadow;
-  font-family: $font-family;
-  padding: $padding;
-  transition: all 1s ease 0s; /* only transition top property */
-}
-
 .fixed {
   position: fixed;
+}
+
+.table {
+  width: max-content;
+  table-layout: auto;
+  border-collapse: collapse; /* Collapse borders */
+  margin: $base-padding;
+  text-align: left;
+  box-sizing: border-box;
+
+  th,
+  td {
+    padding: $base-padding;
+    border: 1px solid darken($base-color-background, 10%); /* Border color */
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle; /* Vertical alignment */
+  }
+
+  th {
+    background-color: lighten($base-color-active, 5%); /* Header background color */
+    color: lighten($base-color-background, 5%);
+  }
+
+  thead {
+    background-color: lighten($base-color-active, 5%);
+    color: lighten($base-color-background, 5%);
+
+    th {
+      &:first-child {
+        border-top-left-radius: $container-border-radius;
+        border: none;
+      }
+
+      &:last-child {
+        border-top-right-radius: $container-border-radius;
+        border: none;
+      }
+    }
+  }
+
+  tbody {
+
+    tr {
+      &:nth-child(even) {
+        background-color: lighten($base-color-active, 35%); /* Background color for even rows */
+      }
+
+      &:last-child {
+        td {
+          &:first-child {
+            border: none;
+            border-bottom-left-radius: $container-border-radius;
+          }
+
+          &:last-child {
+            border: none;
+            border-bottom-right-radius: $container-border-radius;
+          }
+        }
+      }
+    }
+  }
+
+  input {
+    width: 1.5 * $base-size;
+    height: 1.5 * $base-size;
+  }
+
+  button {
+    font-weight: bold;
+    background-color: lighten($base-color-active, 5%); /* Button background color */
+    color: lighten($base-color-background, 5%); /* Button text color */
+    border: solid $border $base-color-active;
+    padding: $base-padding;
+    border-radius: $border-radius;
+    cursor: pointer;
+    height: 2 * $base-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border: solid $border darken($base-color-background, 10%);
+      color: darken($base-color-background, 45%);
+      background-color: $base-color-background;
+      text-decoration: none;
+    }
+  }
+}
+
+/* Статусы */
+.statusActive {
+  font-weight: bold;
+  color: green;
+}
+
+.statusInactive {
+  font-weight: bold;
+  color: red;
 }

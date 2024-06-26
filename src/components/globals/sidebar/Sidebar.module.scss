@@ -20,28 +20,23 @@
       a {
         align-items: center; /* Выравниваем элементы по центру по вертикали */
         border-radius: $container-border-radius;
-        color: $container-font-color; /* Цвет текста */
+        color: $container-color-font; /* Цвет текста */
         display: flex;
         padding: $base-size;
         text-decoration: none;
 
         &:hover, &:focus, &:active {
-          background: $container-active-color; /* Цвет фона при наведении */
-          color: $container-background-color;
+          background: $container-color-active; /* Цвет фона при наведении */
+          color: $container-color-background;
         }
 
         &.active {
-          background: $container-active-color; /* Цвет фона при наведении */
-          color: $container-background-color;
+          background: $container-color-active; /* Цвет фона при наведении */
+          color: $container-color-background;
         }
 
         i {
-          font-size: 24px/14px * $base-size; /* Размер шрифта */
           margin-right: 10px/14px * $base-size; /* Отступ справа */
-        }
-
-        span {
-          font-size: $base-size; /* Размер шрифта */
         }
       }
     }

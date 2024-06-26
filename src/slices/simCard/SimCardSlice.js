@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     iccid: "",
-    status: "INACTIVE",
+    simCardStatus: "INACTIVE",
     defNumber: "",
     mobileOperator: "",
     tariff: "",
@@ -28,6 +28,7 @@ export const simCardSlice = createSlice({
     initialState,
     reducers: {}
 });
+
 
 export const {} = simCardSlice.actions;
 

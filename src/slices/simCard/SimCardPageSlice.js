@@ -72,6 +72,12 @@ export const selectSimCardRequest = (state) => {
         + "&searchSerialNumber=" + state.simCardPage.searchSerialNumber;
 }
 
+export const selectSearchIccid = (state) => state.simCardPage.searchIccid
+export const selectSearchDefNumber = (state) => state.simCardPage.searchDefNumber
+export const selectSearchAddress = (state) => state.simCardPage.searchAddress
+export const selectSearchSerialNumber = (state) => state.simCardPage.searchSerialNumber
+export const selectSearchMobileOperator = (state) => state.simCardPage.searchMobileOperator
+
 export const selectSortingField = (state) => state.simCardPage.sortingField
 export const selectSortingOrder = (state) => state.simCardPage.sortingOrder
 

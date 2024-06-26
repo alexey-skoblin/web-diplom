@@ -2,6 +2,7 @@
 import {useSelector} from "react-redux";
 import {selectIsDisplayed} from "@/slices/SidebarSlice";
 import {selectData} from "@/slices/simCard/SimCardBarSlice";
+import styles from './Wrapper.module.scss';
 
 export default function Wrapper({children}) {
     const sidebarIsDisplayed = useSelector(selectIsDisplayed);
@@ -9,8 +10,8 @@ export default function Wrapper({children}) {
 
     return (
         <div
-            // id={styles.main}
-            // className={`${styles.main} ${sidebarIsDisplayed ? styles.withDisplayedSidebar : ''} ${infoBarIsDisplayed ? styles.withDisplayedInfoBar : ''}`}
+            id={styles.main}
+            className={`${styles.main} ${sidebarIsDisplayed ? styles.withDisplayedSidebar : ''} ${simCardBarIsDisplayed ? styles.withDisplayedInfoBar : ''}`}
         >
             {children}
         </div>

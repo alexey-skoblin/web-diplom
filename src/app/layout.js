@@ -1,4 +1,4 @@
-// import styles from "./layout.scss";
+import styles from "./layout.scss";
 import ReduxProvider from "@/app/ReduxProvider";
 
 import {Open_Sans} from 'next/font/google'
@@ -20,7 +20,7 @@ export default function RootLayout({children}) {
 
     return (
         <html lang="en"
-            // className={`${openSans.className} ${styles}`}
+              className={`${openSans.className} ${styles}`}
         >
         <ReduxProvider>
             <body>

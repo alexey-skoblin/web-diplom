@@ -1,0 +1,27 @@
+@import "../../app/globals";
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+  gap: $distance-between-elements; /* Space between input elements */
+  padding: $base-padding;
+
+  button {
+    font-size: $base-font-size;
+    border: solid $border darken($base-color-background, 10%);
+    border-radius: $border-radius;
+    color: darken($base-color-background, 45%);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    padding: $base-padding;
+    font-weight: bold;
+
+    &:hover {
+      color: lighten($base-color-background, 5%);
+      background-color: $base-color-active;
+      border: solid 1px $base-color-active;
+    }
+  }
+}

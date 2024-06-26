@@ -1,0 +1,43 @@
+@import "../../../app/globals";
+
+// Стили для .container
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin: $container-margin auto 0;
+  border-radius: $border-radius;
+  text-align: center;
+
+  button {
+    list-style: none;
+    border: solid $border darken($base-color-background, 10%);
+    border-radius: $border-radius;
+    color: darken($base-color-background, 45%);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+
+    padding: $base-padding;
+    font-weight: bold;
+
+    &:hover {
+      color: lighten($base-color-background, 5%);
+      background-color: $base-color-active;
+      border: solid 1px $base-color-active;
+    }
+  }
+
+  // Стили для .active
+  .active {
+    color: lighten($base-color-background, 5%);
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: $base-color-active;
+  }
+}
+
+
